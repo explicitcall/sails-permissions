@@ -32,7 +32,6 @@ _.merge(exports, {
         });
     },
     function attachDefaultRole (user, next) {
-      sails.log('User.afterCreate.attachDefaultRole', user);
       User.findOne(user.id)
         .populate('roles')
         .then(function (_user) {
