@@ -43,7 +43,7 @@
     "jshint": "^2.8.0",
     "mocha": "^2.x.x",
     "request": "^2.58.0",
-    "sails": "balderdashy/sails",
+    "sails": "^0.12.11",
     "sails-memory": "^0.10.5",
     "supertest": "^0.15.0",
     "waterline-postgresql": "^0.12.0"
