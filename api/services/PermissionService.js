@@ -94,7 +94,7 @@ module.exports = {
             { user: user.id }
           ]
         };
-        
+
         return Permission.find(permissionCriteria).populate('criteria')
       });
   },
@@ -320,7 +320,7 @@ module.exports = {
         username: usernames
       }).then(function(users) {
         role.users.add(_.pluck(users, 'id'));
-        return role.save();
+        return role.save().then(() => Object.assign({}, role, { users }));
       });
     });
   },
@@ -347,13 +347,12 @@ module.exports = {
       .then(function(role) {
         return User.find({
           username: usernames
-        }, {
-          select: ['id']
         }).then(function(users) {
           users.map(function(user) {
             role.users.remove(user.id);
           });
-          return role.save();
+          return role.save().then(() => Object.assign({}, role,
+            { users: role.users.filter(user => usernames.indexOf(user.name) >= 0) }));
         });
       });
   },
