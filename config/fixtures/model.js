@@ -3,7 +3,7 @@
  *
  * @public
  */
-import _ from 'lodash'
+import _ from 'lodash';
 exports.createModels = function () {
   sails.log.verbose('sails-permissions: syncing waterline models');
 
