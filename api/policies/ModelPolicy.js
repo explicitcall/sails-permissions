@@ -5,7 +5,7 @@ var _ = require('lodash');
  * see: https://github.com/balderdashy/sails/blob/b4eed1775d01f436b263362180eb3f8447af1b87/lib/hooks/blueprints/actionUtil.js#L302
  */
 function parseModel (req) {
-  return req.options.model || req.options.controller
+  return req.options.model || req.options.controller;
 }
 
 /**
